@@ -35,18 +35,15 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <img
-              src="/amber-logo.webp"
-              alt="Amber"
-              className="w-9 h-9 md:w-11 md:h-11 rounded-lg transition-transform group-hover:scale-110"
-            />
-            <span className="text-xl font-bold text-muted-foreground">+</span>
-            <img
-              src="/citrine-logo.webp"
-              alt="Citrine"
-              className="w-9 h-9 md:w-11 md:h-11 rounded-lg transition-transform group-hover:scale-110"
-            />
+          <a href="#" className="flex items-center group">
+            <div className="relative">
+              <img
+                src="/amber-citrine-logo.webp"
+                alt="Amber & Citrine"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-xl transition-transform group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/30 to-yellow-500/30 blur-lg rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
           </a>
 
           {/* Desktop Navigation */}
