@@ -14,7 +14,7 @@ const Index = () => {
     description: 'Amber secures your Nostr private key. Citrine runs a local relay on your Android. Together, they give you complete sovereignty over your identity and data.',
     ogTitle: 'Amber & Citrine - Own Your Nostr Identity & Data',
     ogDescription: 'Your keys, your data, your control. Amber signs Nostr events securely. Citrine backs up your data locally. Android apps for complete Nostr sovereignty.',
-    ogImage: '/amber-hero.webp',
+    ogImage: 'https://amber-citrine.shakespeare.wtf/amber-hero.webp',
     twitterCard: 'summary_large_image',
   });
 
