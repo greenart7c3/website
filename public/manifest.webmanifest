@@ -1,0 +1,21 @@
+{
+  "name": "Amber & Citrine",
+  "short_name": "Amber & Citrine",
+  "description": "Own Your Nostr Identity & Data - Amber secures your private key, Citrine runs your local relay",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1419",
+  "theme_color": "#f59e0b",
+  "icons": [
+    {
+      "src": "/amber-logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/citrine-logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
