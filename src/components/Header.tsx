@@ -38,11 +38,11 @@ export function Header() {
           <a href="#" className="flex items-center group">
             <div className="relative">
               <img
-                src="/amber-citrine-logo.webp"
+                src="/amber-citrine-logo.png"
                 alt="Amber & Citrine"
-                className="w-12 h-12 md:w-14 md:h-14 rounded-xl transition-transform group-hover:scale-110"
+                className="w-12 h-12 md:w-14 md:h-14 transition-transform group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/30 to-yellow-500/30 blur-lg rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </a>
 
