@@ -35,24 +35,18 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative flex items-center gap-2">
-              <img
-                src="/amber-logo.webp"
-                alt="Amber"
-                className="w-8 h-8 md:w-10 md:h-10 rounded-lg transition-transform group-hover:scale-110"
-              />
-              <span className="text-2xl font-bold">+</span>
-              <img
-                src="/citrine-logo.webp"
-                alt="Citrine"
-                className="w-8 h-8 md:w-10 md:h-10 rounded-lg transition-transform group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-            <span className="font-serif text-lg md:text-xl font-bold text-gradient hidden sm:block">
-              Amber & Citrine
-            </span>
+          <a href="#" className="flex items-center gap-2 group">
+            <img
+              src="/amber-logo.webp"
+              alt="Amber"
+              className="w-9 h-9 md:w-11 md:h-11 rounded-lg transition-transform group-hover:scale-110"
+            />
+            <span className="text-xl font-bold text-muted-foreground">+</span>
+            <img
+              src="/citrine-logo.webp"
+              alt="Citrine"
+              className="w-9 h-9 md:w-11 md:h-11 rounded-lg transition-transform group-hover:scale-110"
+            />
           </a>
 
           {/* Desktop Navigation */}
