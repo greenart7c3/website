@@ -10,6 +10,7 @@ const navLinks = [
   { href: '#features', label: 'Together' },
   { href: '#releases', label: 'Releases' },
   { href: '#download', label: 'Download' },
+  { href: '#donate', label: 'Donate' },
 ];
 
 export function Header() {
