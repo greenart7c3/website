@@ -1,131 +1,100 @@
-import { ArrowDown, Shield, Database, Key, Server } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowRight, Github, Smartphone } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+
+const gems = [
+  {
+    href: '#amber',
+    name: 'Amber',
+    role: 'Signer',
+    logo: '/amber-logo.png',
+    glow: 'glow-amber',
+    text: 'text-amber-300',
+  },
+  {
+    href: '#citrine',
+    name: 'Citrine',
+    role: 'Relay',
+    logo: '/citrine-logo.png',
+    glow: 'glow-citrine',
+    text: 'text-yellow-300',
+  },
+  {
+    href: '#morganite',
+    name: 'Morganite',
+    role: 'Media',
+    logo: '/morganite-logo.png',
+    glow: 'glow-morganite',
+    text: 'text-pink-300',
+  },
+];
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient Orbs - Amber and Citrine colors */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-amber-600/30 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-yellow-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-600/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-amber-700/20 rounded-full blur-3xl" />
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(245,158,11,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(245,158,11,0.05)_1px,transparent_1px)] bg-[size:64px_64px]" />
-
-        {/* Noise texture overlay */}
-        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
+    <section id="top" className="relative isolate overflow-hidden bg-hero-gradient pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="absolute inset-0 -z-10 opacity-60">
+        <div className="absolute -top-32 left-1/4 h-96 w-96 rounded-full bg-amber-500/20 blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 h-96 w-96 rounded-full bg-yellow-400/15 blur-3xl" />
+        <div className="absolute bottom-0 left-1/3 h-96 w-96 rounded-full bg-pink-500/20 blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-5xl mx-auto space-y-8">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-900/30 border border-amber-500/20 backdrop-blur-sm animate-fade-in">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-gradient"></span>
-            </span>
-            <span className="text-sm font-medium text-amber-200">
-              Own Your Digital Identity & Data
-            </span>
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-[hsl(var(--foreground))]/80 backdrop-blur-sm">
+            <Smartphone className="h-3.5 w-3.5" />
+            Three open-source Android apps. No accounts. No tracking.
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <span className="block text-foreground">Your Keys,</span>
-            <span className="block text-gradient">Your Data,</span>
-            <span className="block text-foreground">Your Control</span>
+          <h1 className="mt-6 font-serif text-4xl font-bold leading-tight md:text-6xl lg:text-7xl">
+            <span className="text-[hsl(var(--foreground))]">Three gems.</span>
+            <br />
+            <span className="text-gradient-tri">One sovereign Nostr stack.</span>
           </h1>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <span className="text-amber-400 font-semibold">Amber</span> keeps your private key safe while signing events securely. <span className="text-yellow-400 font-semibold">Citrine</span> runs a personal relay on your device, giving you complete ownership of your Nostr data.
+          <p className="mx-auto mt-6 max-w-2xl text-base text-[hsl(var(--foreground))]/70 md:text-lg">
+            <span className="font-semibold text-amber-300">Amber</span> guards your private key,{' '}
+            <span className="font-semibold text-yellow-300">Citrine</span> stores your notes on a relay
+            running in your pocket, and{' '}
+            <span className="font-semibold text-pink-300">Morganite</span> hosts your photos and videos
+            on your own Blossom server. Your keys, your data, your media — all on your phone.
           </p>
 
-          {/* App Icons Row */}
-          <div className="flex justify-center items-center gap-8 md:gap-16 animate-fade-in" style={{ animationDelay: '0.25s' }}>
-            <a href="#amber" className="group flex flex-col items-center gap-3 transition-transform hover:scale-105">
-              <div className="relative">
-                <div className="absolute inset-0 bg-amber-500/40 blur-xl rounded-3xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <img
-                  src="/amber-logo.webp"
-                  alt="Amber - Nostr Signer"
-                  className="relative w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-2xl shadow-amber-900/50 border border-amber-500/30"
-                />
-              </div>
-              <span className="font-semibold text-amber-300">Amber</span>
-            </a>
-            <div className="text-4xl text-muted-foreground/50">+</div>
-            <a href="#citrine" className="group flex flex-col items-center gap-3 transition-transform hover:scale-105">
-              <div className="relative">
-                <div className="absolute inset-0 bg-yellow-500/40 blur-xl rounded-3xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <img
-                  src="/citrine-logo.webp"
-                  alt="Citrine - Local Relay"
-                  className="relative w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-2xl shadow-yellow-900/50 border border-yellow-500/30"
-                />
-              </div>
-              <span className="font-semibold text-yellow-300">Citrine</span>
-            </a>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a href="#download">
-              <Button size="lg" className="w-full sm:w-auto bg-amber-gradient hover:opacity-90 text-white font-semibold px-8 py-6 text-lg glow-amber">
-                Get Both Apps
+              <Button size="lg" className="glow-amber">
+                Get the apps <ArrowRight className="h-4 w-4" />
               </Button>
             </a>
-            <a href="#amber">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-lg border-2 hover:border-amber-400">
-                Learn More
-                <ArrowDown className="w-5 h-5 ml-2" />
+            <a href="https://github.com/greenart7c3" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline">
+                <Github className="h-4 w-4" /> View on GitHub
               </Button>
             </a>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Key className="w-5 h-5 text-amber-400" />
-                <span className="text-2xl md:text-3xl font-bold text-foreground">NIP-46</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Remote Signing</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Shield className="w-5 h-5 text-amber-400" />
-                <span className="text-2xl md:text-3xl font-bold text-foreground">NIP-55</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Android Signer</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Database className="w-5 h-5 text-yellow-400" />
-                <span className="text-2xl md:text-3xl font-bold text-foreground">Local</span>
-              </div>
-              <p className="text-sm text-muted-foreground">Data Backup</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Server className="w-5 h-5 text-yellow-400" />
-                <span className="text-2xl md:text-3xl font-bold text-foreground">Relay</span>
-              </div>
-              <p className="text-sm text-muted-foreground">On Your Phone</p>
-            </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#amber" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-          <span className="text-sm font-medium">Discover the apps</span>
-          <ArrowDown className="w-5 h-5" />
-        </a>
+        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
+          {gems.map((gem, i) => (
+            <a
+              key={gem.name}
+              href={gem.href}
+              className="group relative flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-white/20 animate-fade-in"
+              style={{ animationDelay: `${i * 0.1}s` }}
+            >
+              <img
+                src={gem.logo}
+                alt={`${gem.name} logo`}
+                className={`h-14 w-14 rounded-xl transition-all duration-300 group-hover:scale-105 ${gem.glow} opacity-90 group-hover:opacity-100`}
+              />
+              <div className="flex-1">
+                <div className={`text-xs font-medium uppercase tracking-wider ${gem.text}`}>
+                  {gem.role}
+                </div>
+                <div className="font-serif text-xl font-bold">{gem.name}</div>
+              </div>
+              <ArrowRight className="h-5 w-5 text-[hsl(var(--foreground))]/40 transition-transform group-hover:translate-x-1" />
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
