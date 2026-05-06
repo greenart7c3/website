@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "amber-citrine-morganite",
+  "name": "website",
   "compatibility_date": "2026-05-06",
   "assets": {
     "directory": "./dist",
