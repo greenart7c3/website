@@ -8,6 +8,7 @@ const navLinks = [
   { href: '#citrine', label: 'Citrine' },
   { href: '#morganite', label: 'Morganite' },
   { href: '#features', label: 'Together' },
+  { href: '#releases', label: 'Releases' },
   { href: '#download', label: 'Download' },
 ];
 

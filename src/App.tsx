@@ -4,6 +4,7 @@ import { AmberSection } from '@/components/AmberSection';
 import { CitrineSection } from '@/components/CitrineSection';
 import { MorganiteSection } from '@/components/MorganiteSection';
 import { FeaturesSection } from '@/components/FeaturesSection';
+import { ReleasesSection } from '@/components/ReleasesSection';
 import { DownloadSection } from '@/components/DownloadSection';
 import { Footer } from '@/components/Footer';
 
@@ -17,6 +18,7 @@ export function App() {
         <CitrineSection />
         <MorganiteSection />
         <FeaturesSection />
+        <ReleasesSection />
         <DownloadSection />
       </main>
       <Footer />
