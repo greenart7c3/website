@@ -8,17 +8,17 @@ type AppKey = 'all' | 'amber' | 'citrine' | 'morganite';
 
 const links = {
   amber: {
-    zapstore: 'https://zapstore.dev',
+    zapstore: 'https://zapstore.dev/apps/com.greenart7c3.nostrsigner',
     github: 'https://github.com/greenart7c3/Amber/releases',
     fdroid: 'https://f-droid.org/packages/com.greenart7c3.nostrsigner/',
   },
   citrine: {
-    zapstore: 'https://zapstore.dev',
+    zapstore: 'https://zapstore.dev/apps/com.greenart7c3.citrine',
     github: 'https://github.com/greenart7c3/Citrine/releases',
     fdroid: 'https://f-droid.org/packages/com.greenart7c3.citrine/',
   },
   morganite: {
-    zapstore: 'https://zapstore.dev',
+    zapstore: 'https://zapstore.dev/apps/com.greenart7c3.morganite',
     github: 'https://github.com/greenart7c3/Morganite/releases',
     fdroid: 'https://f-droid.org/packages/com.greenart7c3.morganite/',
   },
