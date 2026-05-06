@@ -1,129 +1,127 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Github } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { useEffect, useState } from 'react';
+import { Github, Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { cn } from '@/lib/cn';
 
 const navLinks = [
   { href: '#amber', label: 'Amber' },
   { href: '#citrine', label: 'Citrine' },
-  { href: '#features', label: 'Features' },
-  { href: '#updates', label: 'Updates' },
+  { href: '#morganite', label: 'Morganite' },
+  { href: '#features', label: 'Together' },
   { href: '#download', label: 'Download' },
 ];
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled || isMobileMenuOpen
-          ? 'bg-background/95 backdrop-blur-xl border-b border-amber-500/10 shadow-lg shadow-amber-900/10'
-          : 'bg-transparent'
+        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        scrolled || open
+          ? 'bg-[hsl(var(--background))]/85 backdrop-blur-xl border-b border-white/10'
+          : 'bg-transparent',
       )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#" className="flex items-center group">
-            <div className="relative">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="flex h-16 items-center justify-between md:h-20">
+          <a href="#top" className="flex items-center gap-3 group">
+            <div className="flex -space-x-2">
               <img
-                src="/amber-citrine-logo.png"
-                alt="Amber & Citrine"
-                className="w-12 h-12 md:w-14 md:h-14 transition-transform group-hover:scale-110"
+                src="/amber-logo.png"
+                alt=""
+                className="h-9 w-9 rounded-lg ring-2 ring-[hsl(var(--background))] transition-transform group-hover:translate-y-[-2px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+              <img
+                src="/citrine-logo.png"
+                alt=""
+                className="h-9 w-9 rounded-lg ring-2 ring-[hsl(var(--background))] transition-transform group-hover:translate-y-[-2px] delay-75"
+              />
+              <img
+                src="/morganite-logo.png"
+                alt=""
+                className="h-9 w-9 rounded-lg ring-2 ring-[hsl(var(--background))] transition-transform group-hover:translate-y-[-2px] delay-150"
+              />
             </div>
+            <span className="hidden sm:block font-serif text-lg font-bold tracking-tight">
+              <span className="text-gradient-tri">Amber · Citrine · Morganite</span>
+            </span>
           </a>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-[hsl(var(--foreground))]/70 transition-colors hover:bg-white/5 hover:text-[hsl(var(--foreground))]"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
             <a
               href="https://github.com/greenart7c3"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex"
+              className="hidden md:inline-flex"
+              aria-label="GitHub: greenart7c3"
             >
-              <Button variant="ghost" size="icon">
-                <Github className="h-5 w-5" />
+              <Button variant="ghost" size="sm" className="px-3">
+                <Github className="h-4 w-4" />
               </Button>
             </a>
-
-            <a href="#download" className="hidden md:block">
-              <Button className="bg-amber-gradient hover:opacity-90 text-white font-semibold px-6">
-                Download
-              </Button>
+            <a href="#download" className="hidden md:inline-flex">
+              <Button size="sm" className="px-5">Download</Button>
             </a>
-
-            {/* Mobile Menu Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5"
+              aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-amber-500/20 bg-background/95 backdrop-blur-xl animate-fade-in">
-            <nav className="flex flex-col gap-2">
+        {open && (
+          <div className="md:hidden border-t border-white/10 py-3 animate-fade-in">
+            <nav className="flex flex-col">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+                  onClick={() => setOpen(false)}
+                  className="rounded-lg px-4 py-3 text-base font-medium text-[hsl(var(--foreground))]/80 hover:bg-white/5"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="flex items-center gap-2 px-4 py-3">
+              <div className="flex items-center gap-2 px-4 pt-3">
                 <a
                   href="https://github.com/greenart7c3"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="flex-1"
+                  onClick={() => setOpen(false)}
                 >
-                  <Button variant="outline" size="icon">
-                    <Github className="h-4 w-4" />
+                  <Button variant="outline" size="md" className="w-full">
+                    <Github className="h-4 w-4" /> GitHub
                   </Button>
                 </a>
+                <a href="#download" className="flex-1" onClick={() => setOpen(false)}>
+                  <Button size="md" className="w-full">Download</Button>
+                </a>
               </div>
-              <a href="#download" className="px-4">
-                <Button className="w-full bg-amber-gradient hover:opacity-90 text-white font-semibold">
-                  Download Now
-                </Button>
-              </a>
             </nav>
           </div>
         )}

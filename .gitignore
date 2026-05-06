@@ -1,33 +1,11 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-
 node_modules
 dist
 dist-ssr
-*.local
-.ai/
-yarn.lock
-
-# Editor directories and files
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Vercel
-.vercel
-
-# Secrets
+.vite
 .env
-.env.*
-!.env.example
+.env.local
+.DS_Store
+*.log
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts

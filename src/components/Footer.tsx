@@ -1,183 +1,164 @@
-import { Github, ExternalLink, Heart } from 'lucide-react';
-import { AMBER_NPUB, CITRINE_NPUB, DEVELOPER_NPUB } from '@/hooks/useAppUpdates';
+import { Github } from 'lucide-react';
 
-const footerLinks = {
-  amber: [
-    { label: 'GitHub', href: 'https://github.com/greenart7c3/Amber' },
-    { label: 'Releases', href: 'https://github.com/greenart7c3/Amber/releases' },
-    { label: 'Issues', href: 'https://github.com/greenart7c3/Amber/issues' },
-    { label: 'F-Droid', href: 'https://f-droid.org/packages/com.greenart7c3.nostrsigner/' },
-  ],
-  citrine: [
-    { label: 'GitHub', href: 'https://github.com/greenart7c3/Citrine' },
-    { label: 'Releases', href: 'https://github.com/greenart7c3/Citrine/releases' },
-    { label: 'Issues', href: 'https://github.com/greenart7c3/Citrine/issues' },
-    { label: 'F-Droid', href: 'https://f-droid.org/packages/com.greenart7c3.citrine/' },
-  ],
-  nostr: [
-    { label: 'What is Nostr?', href: 'https://nostr.com' },
-    { label: 'Nostr Resources', href: 'https://nostr.how' },
-    { label: 'NIP-46 (Remote Signing)', href: 'https://github.com/nostr-protocol/nips/blob/master/46.md' },
-    { label: 'NIP-55 (Android Signer)', href: 'https://github.com/nostr-protocol/nips/blob/master/55.md' },
-  ],
-};
+const columns = [
+  {
+    heading: 'Amber',
+    accent: 'text-amber-300',
+    logo: '/amber-logo.png',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/greenart7c3/Amber' },
+      { label: 'Releases', href: 'https://github.com/greenart7c3/Amber/releases' },
+      { label: 'Issues', href: 'https://github.com/greenart7c3/Amber/issues' },
+      { label: 'F-Droid', href: 'https://f-droid.org/packages/com.greenart7c3.nostrsigner/' },
+    ],
+  },
+  {
+    heading: 'Citrine',
+    accent: 'text-yellow-200',
+    logo: '/citrine-logo.png',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/greenart7c3/Citrine' },
+      { label: 'Releases', href: 'https://github.com/greenart7c3/Citrine/releases' },
+      { label: 'Issues', href: 'https://github.com/greenart7c3/Citrine/issues' },
+      { label: 'F-Droid', href: 'https://f-droid.org/packages/com.greenart7c3.citrine/' },
+    ],
+  },
+  {
+    heading: 'Morganite',
+    accent: 'text-pink-300',
+    logo: '/morganite-logo.png',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/greenart7c3/Morganite' },
+      { label: 'Releases', href: 'https://github.com/greenart7c3/Morganite/releases' },
+      { label: 'Issues', href: 'https://github.com/greenart7c3/Morganite/issues' },
+      { label: 'F-Droid', href: 'https://f-droid.org/packages/com.greenart7c3.morganite/' },
+    ],
+  },
+  {
+    heading: 'Learn Nostr',
+    accent: 'text-white',
+    logo: undefined,
+    links: [
+      { label: 'nostr.com', href: 'https://nostr.com' },
+      { label: 'nostr.how', href: 'https://nostr.how' },
+      { label: 'NIP-46 (remote signing)', href: 'https://github.com/nostr-protocol/nips/blob/master/46.md' },
+      { label: 'Blossom (BUDs)', href: 'https://github.com/hzrd149/blossom' },
+    ],
+  },
+];
 
 export function Footer() {
   return (
-    <footer className="relative bg-background border-t border-amber-500/20">
-      {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-4 group">
-              <div className="flex items-center gap-2">
-                <img
-                  src="/amber-logo.webp"
-                  alt="Amber"
-                  className="w-8 h-8 rounded-lg transition-transform group-hover:scale-110"
-                />
-                <span className="text-lg">+</span>
-                <img
-                  src="/citrine-logo.webp"
-                  alt="Citrine"
-                  className="w-8 h-8 rounded-lg transition-transform group-hover:scale-110"
-                />
-              </div>
-              <span className="font-serif text-xl font-bold text-gradient">
-                Amber & Citrine
-              </span>
-            </a>
-
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              Own your identity. Own your data. Complete Nostr sovereignty on Android.
-            </p>
-
-            <div className="flex items-center gap-3 mb-6">
+    <footer className="relative border-t border-white/10 bg-[hsl(var(--background))]/80 py-16">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="grid gap-10 md:grid-cols-4">
+          <div className="md:col-span-1">
+            <div className="flex -space-x-2">
+              <img src="/amber-logo.png" alt="" className="h-10 w-10 rounded-lg ring-2 ring-[hsl(var(--background))]" />
+              <img src="/citrine-logo.png" alt="" className="h-10 w-10 rounded-lg ring-2 ring-[hsl(var(--background))]" />
+              <img src="/morganite-logo.png" alt="" className="h-10 w-10 rounded-lg ring-2 ring-[hsl(var(--background))]" />
+            </div>
+            <h3 className="mt-4 font-serif text-lg font-bold">
+              <span className="text-gradient-tri">Amber · Citrine · Morganite</span>
+            </h3>
+            <p className="mt-2 max-w-xs text-sm text-[hsl(var(--foreground))]/60">
+              Three open-source Android apps from{' '}
               <a
                 href="https://github.com/greenart7c3"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-amber-900/50 border border-amber-500/20 flex items-center justify-center hover:border-amber-400 hover:text-amber-400 transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href={`https://njump.me/${AMBER_NPUB}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-amber-900/50 border border-amber-500/20 flex items-center justify-center hover:border-amber-400 hover:text-amber-400 transition-colors"
-                title="Amber on Nostr"
-              >
-                <span className="font-bold text-sm">A</span>
-              </a>
-              <a
-                href={`https://njump.me/${CITRINE_NPUB}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-yellow-900/50 border border-yellow-500/20 flex items-center justify-center hover:border-yellow-400 hover:text-yellow-400 transition-colors"
-                title="Citrine on Nostr"
-              >
-                <span className="font-bold text-sm">C</span>
-              </a>
-            </div>
-
-            {/* Developer Credit */}
-            <div className="text-sm text-muted-foreground">
-              <span>Developed by </span>
-              <a
-                href={`https://njump.me/${DEVELOPER_NPUB}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-amber-400 hover:text-amber-300 transition-colors"
+                className="text-[hsl(var(--foreground))] underline-offset-2 hover:underline"
               >
                 greenart7c3
-              </a>
+              </a>{' '}
+              for a sovereign Nostr stack.
+            </p>
+            <a
+              href="https://github.com/greenart7c3"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-[hsl(var(--foreground))]/80 transition-colors hover:bg-white/10"
+            >
+              <Github className="h-4 w-4" /> github.com/greenart7c3
+            </a>
+          </div>
+
+          {columns.slice(0, 3).map((col) => (
+            <div key={col.heading} className="hidden md:block">
+              <div className="flex items-center gap-2">
+                {col.logo && <img src={col.logo} alt="" className="h-5 w-5 rounded" />}
+                <h4 className={`text-sm font-semibold ${col.accent}`}>{col.heading}</h4>
+              </div>
+              <ul className="mt-3 space-y-2">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-[hsl(var(--foreground))]/65 hover:text-[hsl(var(--foreground))]"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Links Columns */}
-          <div>
-            <h4 className="font-semibold mb-4 text-amber-300">Amber</h4>
-            <ul className="space-y-3">
-              {footerLinks.amber.map((link) => (
-                <li key={link.label}>
+        <div className="md:hidden mt-10 grid grid-cols-2 gap-8">
+          {columns.map((col) => (
+            <div key={col.heading}>
+              <div className="flex items-center gap-2">
+                {col.logo && <img src={col.logo} alt="" className="h-5 w-5 rounded" />}
+                <h4 className={`text-sm font-semibold ${col.accent}`}>{col.heading}</h4>
+              </div>
+              <ul className="mt-3 space-y-2">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-[hsl(var(--foreground))]/65 hover:text-[hsl(var(--foreground))]"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden md:block">
+          <div className="mt-10 -mb-2">
+            <div className="flex items-center gap-2">
+              <h4 className="text-sm font-semibold text-white">Learn Nostr</h4>
+            </div>
+            <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+              {columns[3].links.map((l) => (
+                <li key={l.label}>
                   <a
-                    href={link.href}
+                    href={l.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5 group"
+                    className="text-sm text-[hsl(var(--foreground))]/65 hover:text-[hsl(var(--foreground))]"
                   >
-                    {link.label}
-                    <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-yellow-300">Citrine</h4>
-            <ul className="space-y-3">
-              {footerLinks.citrine.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5 group"
-                  >
-                    {link.label}
-                    <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Learn About Nostr</h4>
-            <ul className="space-y-3">
-              {footerLinks.nostr.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5 group"
-                  >
-                    {link.label}
-                    <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {l.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-amber-500/20">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>
-              © {new Date().getFullYear()} Amber & Citrine. Open source software.
-            </p>
-
-            <div className="flex items-center gap-1">
-              <span>Vibed with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-current" />
-              <span>using</span>
-              <a
-                href="https://shakespeare.diy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-amber-400 hover:underline font-medium"
-              >
-                Shakespeare
-              </a>
-            </div>
-          </div>
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-[hsl(var(--foreground))]/50 md:flex-row">
+          <p>Open source · MIT-style licenses on each repo · No tracking on this site.</p>
+          <p>
+            Built with React, Vite and Tailwind. Logos courtesy of the respective project repos.
+          </p>
         </div>
       </div>
     </footer>
