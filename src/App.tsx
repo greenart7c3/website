@@ -6,6 +6,7 @@ import { MorganiteSection } from '@/components/MorganiteSection';
 import { FeaturesSection } from '@/components/FeaturesSection';
 import { ReleasesSection } from '@/components/ReleasesSection';
 import { DownloadSection } from '@/components/DownloadSection';
+import { DonationSection } from '@/components/DonationSection';
 import { Footer } from '@/components/Footer';
 
 export function App() {
@@ -20,6 +21,7 @@ export function App() {
         <FeaturesSection />
         <ReleasesSection />
         <DownloadSection />
+        <DonationSection />
       </main>
       <Footer />
     </div>
