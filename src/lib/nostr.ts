@@ -40,6 +40,12 @@ export function noteIdToBech32(eventId: string): string {
   return nip19.noteEncode(eventId);
 }
 
+// A kind:1 note is a reply when it references another event via an `e` tag
+// (NIP-10). Root posts have no such tag.
+function isRootPost(event: Event): boolean {
+  return !event.tags.some((tag) => tag[0] === 'e');
+}
+
 export async function fetchReleases(
   pubkey: string,
   limit = 8,
@@ -51,12 +57,12 @@ export async function fetchReleases(
       pool.querySync(RELAYS, {
         kinds: [1],
         authors: [pubkey],
-        limit,
+        limit: limit * 4,
       }) as Promise<Event[]>,
       new Promise<Event[]>((resolve) => setTimeout(() => resolve([]), timeoutMs)),
     ])) as Event[];
     return events
-      .slice()
+      .filter(isRootPost)
       .sort((a: Event, b: Event) => b.created_at - a.created_at)
       .slice(0, limit);
   } finally {
