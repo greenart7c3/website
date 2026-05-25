@@ -88,7 +88,7 @@ function ReleaseCard({
     <Card className={cn('h-full transition-colors hover:bg-white/[0.05]', border, surface)}>
       <CardContent className="flex h-full flex-col">
         <div className={cn('text-xs font-semibold', accent)}>{relativeDate(event.created_at)}</div>
-        <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-[hsl(var(--foreground))]/80">
+        <p className="mt-3 whitespace-pre-wrap break-words text-sm leading-relaxed text-[hsl(var(--foreground))]/80">
           {truncated}
         </p>
         <a
